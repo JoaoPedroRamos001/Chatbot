@@ -1,0 +1,5 @@
+Instalar as Importações
+
+pip install Flask
+pip install flask-cors
+pip install google-generativeai

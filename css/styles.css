@@ -1,0 +1,226 @@
+:root {
+  /* variaveis de cor para o tema claro */
+  --cor-fundo: #f0f4f8; 
+  --cor-texto: #333333; 
+  --cor-botao: #4a90e2; 
+  --cor-botao-texto: white; 
+  --cor-borda: #d1d1d1; 
+  --sombra: rgba(0, 0, 0, 0.1); 
+  --cor-botao-tema: #ccc; 
+  --cor-botao-tema-hover: #bbb; 
+}
+
+[data-tema="escuro"] {
+  /* variaveis de cor para o tema escuro */
+  --cor-fundo: #1e1e1e; 
+  --cor-texto: #e0e0e0; 
+  --cor-botao: #4a90e2; 
+  --cor-botao-texto: white; 
+  --cor-borda: #444; 
+  --sombra: rgba(0, 0, 0, 0.5); 
+  --cor-botao-tema: #666; 
+  --cor-botao-tema-hover: #555; 
+}
+
+body {
+  /* estilo geral do corpo da página */
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#chat-container {
+  /* estilo do contêiner do chat */
+  width: 90%; 
+  max-width: 800px;
+  margin: 50px auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: 15px; 
+  overflow: hidden;
+  background: var(--cor-fundo);
+  box-shadow: 0 4px 12px var(--sombra); 
+  padding: 20px;
+  animation: fadeIn 0.5s ease; 
+}
+
+@keyframes fadeIn {
+  /* animação de fade in */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#chat-box {
+  /* estilo da caixa de chat */
+  height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 10px; 
+  background: rgba(255, 255, 255, 0.9); 
+  border: 1px solid var(--cor-borda);
+  transition: background-color 0.3s ease; 
+}
+
+#chat-box div {
+  /* estilo das mensagens dentro da caixa de chat */
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+#chat-box div:hover {
+  /* efeito de hover nas mensagens */
+  transform: scale(1.02); 
+}
+
+#chat-box .user {
+  /* estilo das mensagens do usuário */
+  text-align: right;
+  background-color: var(--cor-botao);
+  color: var(--cor-botao-texto);
+  border: 1px solid #b2ebf2;
+}
+
+#chat-box .bot {
+  /* estilo das mensagens do bot */
+  text-align: left;
+  background-color: #ffffff; 
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+}
+
+[data-tema="escuro"] #chat-box .user {
+  /* estilo das mensagens do usuário no tema escuro */
+  background-color: var(--cor-botao);
+  color: var(--cor-botao-texto);
+}
+
+[data-tema="escuro"] #chat-box .bot {
+  /* estilo das mensagens do bot no tema escuro */
+  background-color: #2a2a2a; 
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+}
+
+#input-container {
+  /* estilo do contêiner de entrada */
+  display: flex;
+  margin-top: 10px; 
+}
+
+#user-input {
+  /* estilo do campo de entrada do usuário */
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px; 
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px; 
+  transition: border-color 0.3s ease; 
+}
+
+#user-input:focus {
+  /* muda a cor da borda ao focar no campo de entrada */
+  border-color: var(--cor-botao); 
+}
+
+#send-button {
+  /* estilo do botão de enviar */
+  width: 18%;
+  padding: 10px;
+  border: none;
+  background-color: var(--cor-botao);
+  color: var(--cor-botao-texto);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#send-button:hover {
+  /* cor do botão ao passar o mouse */
+  background-color: #357ab8; 
+}
+
+#send-button:active {
+  /* cor do botão ao clicar */
+  background-color: #2a6a9a; 
+}
+
+#chat-container h2 {
+  /* estilo do título do contêiner de chat */
+  text-align: center;
+  color: var(--cor-texto);
+  margin-bottom: 20px;
+}
+
+#chat-box::-webkit-scrollbar {
+  /* estilo da barra de rolagem */
+  width: 8px; 
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+  /* estilo do "polegar" da barra de rolagem */
+  background-color: var(--cor-borda); 
+  border-radius: 10px; 
+}
+
+#chat-box::-webkit-scrollbar-track {
+  /* estilo do fundo da barra de rolagem */
+  background: rgba(0, 0, 0, 0.1); 
+}
+
+#theme-toggle {
+  /* estilo do botão de alternância de tema */
+  display: inline-block;
+  width: 40px; 
+  height: 20px; 
+  background-color: var(--cor-botao-tema); 
+  border-radius: 10px; 
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+#theme-toggle:before {
+  /* estilo do círculo dentro do botão de tema */
+  content: '';
+  position: absolute;
+  width: 18px; 
+  height: 18px; 
+  background-color: white; 
+  border-radius: 50%; 
+  top: 1px; 
+  left: 1px; 
+  transition: transform 0.3s ease; 
+}
+
+[data-tema="escuro"] #theme-toggle {
+  /* cor do botão de tema no modo escuro */
+  background-color: var(--cor-botao-tema); 
+}
+
+[data-tema="escuro"] #theme-toggle:before {
+  /* movimento do círculo para a direita no modo escuro */
+  transform: translateX(20px); 
+}
+
+.copy-icon {
+  /* estilo do ícone de copiar */
+  transition: transform 0.2s ease; 
+}
+
+.copy-icon:hover {
+  /* efeito de aumento ao passar o mouse no ícone de copiar */
+  transform: scale(1.2); 
+}
+
+.copy-icon:active {
+  /* efeito de diminuição ao clicar no ícone de copiar */
+  transform: scale(0.9); 
+}
